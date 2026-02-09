@@ -1,0 +1,57 @@
+<template>
+    <!-- QUIZ SCREEN -->
+    <template if:false={isFinished}>
+        <div class="slds-card slds-p-around_medium slds-m-around_medium">
+
+            <p class="slds-text-heading_medium slds-m-bottom_medium">
+                {currentQuestion.question}
+            </p>
+
+            <div class="slds-m-bottom_medium">
+                <template for:each={currentQuestion.options} for:item="option">
+                    <div key={option} class="slds-form-element slds-m-bottom_small">
+                        <div class="slds-radio">
+                            <input type="radio" id={option} name={currentQuestion.id} value={option} checked={option.checked}
+                                onchange={handleAnswerChange} />
+                            <label class="slds-radio__label" for={option}>
+                                <span class="slds-radio_faux"></span>
+                                <span class="slds-form-element__label">
+                                    {option}
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <div class="slds-grid slds-grid_align-spread">
+                <button class="slds-button slds-button_neutral" onclick={previousQuestion}>
+                    Previous
+                </button>
+                <template if:true={showsubmit}>
+                    <button class="slds-button slds-button_brand" onclick={submitQuiz}>
+                        Submit
+                    </button>
+                </template>
+
+                <button class="slds-button slds-button_neutral" onclick={nextQuestion}>
+                    Next
+                </button>
+            </div>
+
+        </div>
+    </template>
+
+    <!-- RESULT SCREEN -->
+    <template if:true={isFinished}>
+        <div class="slds-card slds-p-around_large slds-m-around_medium slds-text-align_center">
+            <p class="slds-text-heading_large slds-m-bottom_small">
+                Quiz Completed
+            </p>
+
+            <p class="slds-text-heading_medium">
+                Your Score: {score} / {questions.length}
+            </p>
+        </div>
+    </template>
+</template>
