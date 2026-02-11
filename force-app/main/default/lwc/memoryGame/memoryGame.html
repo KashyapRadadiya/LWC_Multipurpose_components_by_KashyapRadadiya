@@ -1,0 +1,57 @@
+<template>
+    <lightning-card title="Memory Game">
+
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-p-around_small slds-text-align_center">
+                <p class="slds-text-heading_small">
+                    Score: {score}
+                </p>
+            </div>
+            <div class="slds-col slds-p-around_small slds-text-align_center">
+                <p class="slds-text-heading_small">
+                    Time: {time}
+                </p>
+            </div>
+            <div class="slds-col slds-p-around_small slds-text-align_center">
+                <lightning-button variant="neutral" label="Reset" onclick={resetgame}></lightning-button>
+            </div>
+        </div>
+
+        <div class="slds-p-around_medium">
+            <div class="slds-grid slds-wrap">
+                <template for:each={items} for:item="item">
+                    <div key={item.id} class="slds-col slds-size_1-of-4 slds-p-around_x-small">
+                        <div class="slds-box slds-text-align_center" data-id={item.id} onclick={handleCardClick}>
+                            <lightning-icon size="large" icon-name={item.icon} class={item.iconClass}>
+                            </lightning-icon>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+
+        <template if:true={winpopup}>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+                class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">You Won!!</h1>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <b>Congratulations You Won!! &#x1F3C6;</b>
+                        <p>You Cleared this game in {time} Sec. &#x1F44F;</p>
+                    </div>
+                    <div class="slds-modal__footer">
+                        <button class="slds-button slds-button_brand" onclick={resetgame}>Play Again</button>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+        </template>
+
+
+
+
+    </lightning-card>
+</template>
