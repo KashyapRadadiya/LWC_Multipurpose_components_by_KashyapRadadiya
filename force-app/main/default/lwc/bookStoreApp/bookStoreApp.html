@@ -1,0 +1,31 @@
+<template>
+
+    <lightning-card title="Book Store" class="slds-m-around_small">
+
+        <div class="slds-m-around_small">
+            <lightning-input label="Search Book" onchange={handleSearchChange}>
+            </lightning-input>
+            <div class="slds-m-around_xx-small">
+                <p>Search Results For "{searchTerm}"</p>
+            </div>
+        </div>
+
+        <lightning-layout multiple-rows="true" horizontal-align="center">
+            <template for:each={books} for:item="book">
+                <lightning-layout-item key={book.id} 
+                size="3">
+                    <div class="slds-box slds-m-around_x-small">
+                        <div class="slds-align_absolute-center slds-m-around_xx-small"><img src={book.thumbnail} alt="book image not available" 
+                            style="height: 250px; border:solid 1px rgb(151, 151, 151); border-radius: 10px;"></div>
+                        <div class="slds-align_absolute-center slds-text-heading_small slds-m-around_xx-small"><strong>{book.title}</strong></div>
+                        <div class="slds-align_absolute-center slds-text-heading_small slds-m-around_xx-small"><p>{book.publishedDate}</p></div>
+                        <div class="slds-align_absolute-center slds-text-heading_small slds-m-around_xx-small"><p>{book.averageRating}</p></div>
+                    </div>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+
+    </lightning-card>
+
+
+</template>
