@@ -60,6 +60,31 @@ A fully functional 4x4 memory card matching game.
 
 ---
 
+### 3️⃣ BookStore Component  
+
+A dynamic book search application built using LWC that fetches real-time search data from the Google Books API.
+
+#### ✨ Features  
+- Live search while typing (dynamic search)  
+- Debounced API calls (optimized performance)  
+- Fetches real-time book data from external API  
+- Displays book thumbnail, title, Rating, publish date  
+- Handles empty search safely  
+- Error handling for failed API responses  
+- Reactive UI updates without page refresh  
+
+#### 🧠 Concepts Used  
+- Async/Await for API handling  
+- Fetch API integration in LWC  
+- Debounce technique using setTimeout  
+- Dynamic URL parameter handling  
+- encodeURIComponent for safe query building  
+- Conditional rendering (if:true)  
+- Template iteration (for:each)  
+- Reactive state management  
+
+---
+
 ## 🛠️ Tech Stack
 
 - Salesforce Lightning Web Components (LWC)
@@ -76,7 +101,8 @@ A fully functional 4x4 memory card matching game.
     - └── default/
       - └── lwc/
         - ├── quiz App/
-        - └── memory Game/
+        - ├── memory Game/
+        - └── bookStore App/
 
 ---
 
